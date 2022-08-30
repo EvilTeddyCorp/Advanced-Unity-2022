@@ -105,6 +105,7 @@ public class MeshVision : MonoBehaviour
                     {
                         Enemy.Invoke("VisionFound", 0);
                     }
+     
 
                 }
                 vertices[vertexindex] = vertex;
