@@ -1087,8 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.5
-  height: 2
+  radius: 22
+  height: 20
   canMove: 1
   maxSpeed: 1
   gravity: {x: NaN, y: NaN, z: NaN}
@@ -1099,7 +1099,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   autoRepath:
     mode: 2
     interval: 0.5
@@ -1110,9 +1110,9 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 120
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.42
   endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
   constrainInsideGraph: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIezNWI3SVgIAABEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzk0HQmJKby0hpIcEJqSTiy+ytMYaZMmjR3gN/71a2cYOnZxYvv1299uHfCJC2QqY02ZhBH/WHMjPAUGbfBt0zifY041Wa3GElvMuuCuQRCPnlTqhAz7CMKtLcEawX2ojkTwMoFci16ac8w3MtHU2wDmVFoLLaIfRKkCnAdmHn5sphhyCdTtB6xis6XBwDiYD5cB01JbY0mqWV0zSsgKOkjvyuGWP7iNNhWYaBgpnWkphGyXEHarY6boqwAC2ygUNjcXqSC9AbAqHIvuxyzy34BpFhh4ehAnzqZOS37oeWknttpb1QaXHMsldVFTnfP7PfTOK7tzo8qktOxpiCVcItn2lB0at6w21Dz981u3VjsotzSS8F6Be9MJor3hwOuMx1Fu4fej+XjqbFcC2HV5LvQJ99fVqsIdzbH4/k6LM0PX9rgbWUsdpx8WDCXv5EwTHs7BNioCiir8W3uimfz+N41EY64Kr6VKhvEx7g1QyjzPDbrybaaPA9DNUoKh0h1XI465XeOX7OuqR4lNpqje+9gVchUS44w+HV66V3l22ZQu9ewZbLL2TQkE3anS8hEHNtFL1hfVbasPW3uSU9cI2XvDPt0WSZHyXTLLx9Ec2hGwKN2zKJ9P7BO5ZwicsyUg8PqFCn1SuaqHNeMLaVJdchUNrvyCDhaFVvHZu6G4hjqW2HVOoXK+ZAVDLOsNFOJhQJDxKPuciDGgNzgkVF05OKZGabYGnl0Rp7HS+d4amXZaUVOJDO0RSMoufjJQgfDnmlYEPATss3iY7k/M/UEsDBBQAAAgIAAAQIezPuakSbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSmZmxiZl5krGlRZJBapJlqm6yZYq5palZqmmyWYp5slmSUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIezNWI3SVgIAABEFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIezPuakSbQAAAHgAAAAJACQAAAAAAAAAAAAAAKMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAWwMAAAAA
+    dataString: UEsDBBQAAAgIAAAQIewTlUBiWgIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjSGJKby0hpIcEJqSTiy+ytMYaZMkjyXwO/70r2cYunZxY3r79eLsrn4lQtgTmtFkYwV81B/JjQLxNvg065wsc6EartThBy/kU3OWeRAPnnTqhER/5MKsLcEawn2ojPTlCsFIi06aY8w3MtHUW4YxKC+gy2vlohdB5QA74M5z6kCNa44m3TmhNo8EFTQbKgemoLbGl1axKMUmLErhvuSOPW/aopikU0zCiu7HPrqUUtumFuGMZtK7LHAx4sVxQlBbqj+4eEchBbHLnU/ejl1lmwTVdGXp8EgZnVKclv3Q9uILabd3ajsrKF4ofQld1ztf/3MNRcGdGFy9t2VHkS7hcsO07PTJqXW+wffip13kY0J7KLU0lfOag3vTC6EpxdDpT+dDKwvip+3tVNsuBbTu8bvUGrMqv1+M1XIL4w0yKIg2Tf6iBtdRh3mH5YHA3v7HhcBq2mTCivos/Fj7opn9DjeNZGOvQ1ahUvr1UV8ZTyTzMzKup3EwbBaafoQRFpTuuMI+7XeGN7+uoZ+qfS1O98bWv4CYkwB0/im5cK72/bsvmev8KNl9WTgoF3ai94w0HNdNK1RfWl9SGrSuTUdYL21SC/3tbJI7vH+JJej/9nkaQTmHIpnwyfYzhkcV8wuKUhOMTCnVSuaobbcaDa1NdcoWH1n5FBgtDy3Dt3ND9QpwKbTumUJleMwOglnWGa+NgsAg+TD7nAge0BueECgsn54RIzbbAk2uiJCidH5yhSZclIaXYaeeRhMzCZyMhHr4e88rATsDeF2+TXcjlL1BLAwQUAAAICAAAECHsz7mpEm0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kpmZsYmZeZKxpUWSQWqSZapusmWKuaWpWappslmKebJZklIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHsE5VAYloCAAAVBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHsz7mpEm0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1218,7 +1218,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -1300,7 +1332,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1751,7 +1783,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956145407}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
