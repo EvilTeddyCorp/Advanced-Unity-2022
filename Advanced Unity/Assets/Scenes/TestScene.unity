@@ -1240,12 +1240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511e4d3e8a871c54ea9ff37e663daf8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 07269370143111145a926a3ed7e3623f, type: 2}
   Player: {fileID: 732153134}
-  Enemy: {fileID: 1532071456}
+  Fov: {fileID: 1956145407}
   Checkpoint: {fileID: 1099948903}
-  PlayerSijaintiTallennus: {fileID: 0}
   VisionHu: 1
-  RayRange: 20
+  Rotation: 1
 --- !u!1 &1675679704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   enemy: {fileID: 1532071456}
   fov: 360
   haluttufov: 45
-  raycount: 900
+  raycount: 2000
   viewdistance: 20
   smallviewdistance: 2
 --- !u!33 &1956145409
@@ -1882,7 +1882,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 605b2cecda2459b43886dd0d697dbdee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
