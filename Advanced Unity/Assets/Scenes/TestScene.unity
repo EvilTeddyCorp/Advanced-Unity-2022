@@ -1193,9 +1193,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 120
-  slowdownDistance: 0.6
+  slowdownDistance: 5
   pickNextWaypointDist: 0.42
-  endReachedDistance: 0.2
+  endReachedDistance: 4
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
@@ -1243,7 +1243,9 @@ MonoBehaviour:
   Player: {fileID: 732153134}
   Enemy: {fileID: 1532071456}
   Checkpoint: {fileID: 1099948903}
+  PlayerSijaintiTallennus: {fileID: 0}
   VisionHu: 1
+  RayRange: 20
 --- !u!1 &1675679704
 GameObject:
   m_ObjectHideFlags: 0
