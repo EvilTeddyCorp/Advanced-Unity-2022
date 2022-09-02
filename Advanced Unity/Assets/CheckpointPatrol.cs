@@ -11,16 +11,20 @@ public class CheckpointPatrol : MonoBehaviour
 
         if (collision.gameObject == Enemy && Enemy.GetComponent<Pathfinding.AIDestinationSetter>().target == this.transform)
         {
-            Invoke("TargetVaihto", 1);                
+            StartCoroutine("TargetVaihto");            
         }
     }
-    public void TargetVaihto()
+    public IEnumerator TargetVaihto()
     {
-        if (Enemy.GetComponent<enemy>().Unohdettu == true)
-        {
-            Enemy.GetComponent<Pathfinding.AIDestinationSetter>().target = NextCheckpoint.transform;
-            Enemy.GetComponent<enemy>().Checkpoint = NextCheckpoint;
+        yield return new WaitForSeconds(1);
+        while (Enemy.GetComponent<enemy>().Unohdettu == false) // wait until unohdettu == true
+        { 
+            yield return null;
         }
+        Debug.Log("while passed");
+        Enemy.GetComponent<Pathfinding.AIDestinationSetter>().target = NextCheckpoint.transform;
+        Enemy.GetComponent<enemy>().Checkpoint = NextCheckpoint;
+        
     }
 
 

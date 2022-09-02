@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D rb;
     [HideInInspector]
     public bool canMove = true;
-    
+    Vector2 mousepos;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +45,11 @@ public class Movement : MonoBehaviour
         {
             GameManager.Instance.PauseGame();
         }
-    }
+
+        mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);     // hiirtä kohti katsominen
+    
+
+        transform.up = mousepos - (Vector2) transform.position;
+
+}
 }
