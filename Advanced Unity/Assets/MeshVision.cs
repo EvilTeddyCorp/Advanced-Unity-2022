@@ -80,9 +80,9 @@ public class MeshVision : MonoBehaviour
                         vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
 
                     }
-                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
+                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
                     {
-                        Enemy.Invoke("VisionFound", 0);
+                        Enemy.VisionFound(true);
                     }
 
                 }
@@ -103,9 +103,9 @@ public class MeshVision : MonoBehaviour
                         vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
 
                     }
-                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
+                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
                     {
-                        Enemy.Invoke("VisionFound", 0);
+                        Enemy.VisionFound(true);
                     }
      
 

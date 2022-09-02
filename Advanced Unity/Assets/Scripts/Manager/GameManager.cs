@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     //public GameObject Player;
 
     bool isPaused = false;
+    
     public void PauseGame()
     {
         if (isPaused)
@@ -34,4 +35,6 @@ public class GameManager : Singleton<GameManager>
         }
 
     }
+
+
 }

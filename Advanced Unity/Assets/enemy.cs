@@ -8,16 +8,19 @@ using Pathfinding;
 public class enemy : MonoBehaviour
 {
     public EnemyData enemyData;
-
+    public HiveMindSystem HiveMindSystem;
     public GameObject Player;
     GameObject Enemy;
     public GameObject Fov;
     public GameObject Checkpoint;
     public bool VisionHu = true;   // vision hukattu
     public bool Rotation = true;
+    public bool Unohdettu = true;
     LayerMask Mask;
     Vector3 Dir;
     GameObject PlayerSijainti;
+
+    // kannattaaa laittaa eri pathfinding sensitivity enemyille 
 
     bool Executing = false;
     bool ExecutingFov = false;
@@ -31,8 +34,12 @@ public class enemy : MonoBehaviour
         Enemy.GetComponent<AIPath>().slowdownDistance = enemyData.CheckpointSlowdownDistance;
         Enemy.GetComponent<AIPath>().endReachedDistance = enemyData.CheckpointEndReachedDistance;
     }
-    public void VisionFound() // mesh vision kutsuu tän ku se osuu pelaajaan
+    public void VisionFound(bool ensimmäinen) // mesh vision kutsuu tän ku se osuu pelaajaan
     {
+        if(enemyData.HiveMind == true && ensimmäinen)
+        {
+            HiveMindSystem.HiveMindHunt();
+        }
         Rotation = true;
         if (ExecutingFov)
         {
@@ -45,6 +52,7 @@ public class enemy : MonoBehaviour
         }
         if (VisionHu == true)
         {
+            Unohdettu = false;
             Fov.GetComponent<MeshVision>().haluttufov = 120;
             Enemy.GetComponent<AIDestinationSetter>().target = Player.transform;
             Enemy.GetComponent<AIPath>().slowdownDistance = enemyData.PlayerSlowdownDistance;
@@ -64,24 +72,30 @@ public class enemy : MonoBehaviour
         Enemy.GetComponent<AIPath>().endReachedDistance = enemyData.CheckpointEndReachedDistance;
 
         yield return new WaitForSeconds(enemyData.VisionDelay);
-        
-        PlayerSijainti = Instantiate(enemyData.PlayerSijaintiTallennus, Player.transform.position, Player.transform.rotation);
-        PlayerSijainti.GetComponent<PelaajanSijaintiTrigger>().Enemy = this.gameObject;
-        Enemy.GetComponent<AIDestinationSetter>().target = PlayerSijainti.transform;
-        Debug.Log("VisionLost ended");
+        if (!VisionHu)
+        {
+            if (PlayerSijainti != null) GameObject.Destroy(PlayerSijainti);
+            PlayerSijainti = Instantiate(enemyData.PlayerSijaintiTallennus, Player.transform.position, Player.transform.rotation);
+            PlayerSijainti.GetComponent<PelaajanSijaintiTrigger>().Enemy = this.gameObject;
+            Enemy.GetComponent<AIDestinationSetter>().target = PlayerSijainti.transform;
+            Debug.Log("VisionLost ended");
 
-        VisionHu = true;
-        Executing = false;
+            VisionHu = true;
+            Executing = false;
+        }
     }
 
     private IEnumerator Unohtaminen()
     {
         ExecutingFov = true;
         yield return new WaitForSeconds(enemyData.AlertModeDelay);
-        Fov.GetComponent<MeshVision>().haluttufov = 45;
-        Enemy.GetComponent<AIDestinationSetter>().target = Checkpoint.transform;
+        if (VisionHu == true)
+        {
+            Fov.GetComponent<MeshVision>().haluttufov = 45;
+            Enemy.GetComponent<AIDestinationSetter>().target = Checkpoint.transform;
+        }
+        Unohdettu = true;
         ExecutingFov =false;
-
     }
 
 
@@ -124,15 +138,5 @@ public class enemy : MonoBehaviour
         }
 
     }
-    private void FixedUpdate()
-    {
-
-
-
-    }
-
-
-
-
 
 }

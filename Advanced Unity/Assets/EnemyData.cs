@@ -14,5 +14,6 @@ public class EnemyData : ScriptableObject
     public float PlayerEndReachedDistance = 4f;
     public float VisionDelay = 1;
     public float AlertModeDelay = 5;
+    public bool HiveMind;
 
 }
