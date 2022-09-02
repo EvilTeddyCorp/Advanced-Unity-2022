@@ -29,7 +29,7 @@ public class MeshVision : MonoBehaviour
         
       
     }
-    private void LateUpdate()
+    private void Update()
     {
         if (!tased)
         {
@@ -66,6 +66,7 @@ public class MeshVision : MonoBehaviour
                 if (i <= (raycount / jakaja))
                 {
                     RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), viewdistance, mask);
+                   
 
                     if (raycastH.collider == null)
                     {
@@ -79,15 +80,16 @@ public class MeshVision : MonoBehaviour
                         vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
 
                     }
-                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player") && Enemy.GetComponent<enemy>().VisionHu == true) // että pelaaja huomataan
+                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
                     {
-                        Enemy.Invoke("VisionFound", 0);
+                        Enemy.VisionFound(true);
                     }
 
                 }
                 else
                 {
                     RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), smallviewdistance, mask);
+
 
                     if (raycastH.collider == null)
                     {
@@ -101,10 +103,11 @@ public class MeshVision : MonoBehaviour
                         vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
 
                     }
-                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player") && Enemy.GetComponent<enemy>().VisionHu == true) // että pelaaja huomataan
+                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
                     {
-                        Enemy.Invoke("VisionFound", 0);
+                        Enemy.VisionFound(true);
                     }
+     
 
                 }
                 vertices[vertexindex] = vertex;

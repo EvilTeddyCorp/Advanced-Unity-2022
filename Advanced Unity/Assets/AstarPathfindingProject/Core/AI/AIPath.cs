@@ -62,6 +62,7 @@ namespace Pathfinding {
 	public partial class AIPath : AIBase, IAstarAI {
 		/// <summary>
 		/// How quickly the agent accelerates.
+		/// How quickly the agent accelerates.
 		/// Positive values represent an acceleration in world units per second squared.
 		/// Negative values are interpreted as an inverse time of how long it should take for the agent to reach its max speed.
 		/// For example if it should take roughly 0.4 seconds for the agent to reach its max speed then this field should be set to -1/0.4 = -2.5.
