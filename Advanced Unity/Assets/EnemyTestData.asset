@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: EnemyTest
   MaxHealth: 100
-  RayRange: 5
+  RayRange: 20
   PlayerSijaintiTallennus: {fileID: 6003232717498016082, guid: 360d45750495e10419bd30d8c4d5db0d, type: 3}
   CheckpointSlowdownDistance: 0.4
   PlayerSlowdownDistance: 5
