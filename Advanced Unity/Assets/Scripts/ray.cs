@@ -10,7 +10,7 @@ public class ray : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        Mask = LayerMask.GetMask("Interactable");
+        Mask = LayerMask.GetMask("Interactable", "Wall");
     }
     void Update()
     {
