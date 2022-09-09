@@ -25,18 +25,24 @@ public class enemy : MonoBehaviour
     bool Executing = false;
     bool ExecutingFov = false;
 
-    private void Start()
+
+  
+
+        
+    
+        private void Start()
     {
+        
         Enemy = this.gameObject;
-        Mask = LayerMask.GetMask("Wall", "player");
+        Mask = LayerMask.GetMask("Wall", "player", "IgnoreAstarpath");
 
         Enemy.GetComponent<AIDestinationSetter>().target = Checkpoint.transform;
         Enemy.GetComponent<AIPath>().slowdownDistance = enemyData.CheckpointSlowdownDistance;
         Enemy.GetComponent<AIPath>().endReachedDistance = enemyData.CheckpointEndReachedDistance;
     }
-    public void VisionFound(bool ensimmäinen) // mesh vision kutsuu tän ku se osuu pelaajaan
+    public void VisionFound(bool ensimmainen) // mesh vision kutsuu tï¿½n ku se osuu pelaajaan
     {
-        if(enemyData.HiveMind == true && ensimmäinen)
+        if(enemyData.HiveMind == true && ensimmainen)
         {
             HiveMindSystem.HiveMindHunt();
         }
@@ -102,7 +108,7 @@ public class enemy : MonoBehaviour
 
     private void Update()
     {
-        if (VisionHu == false && Rotation == true) // jos vihollinen näkee pelaajan
+        if (VisionHu == false && Rotation == true) // jos vihollinen nï¿½kee pelaajan
         {
             Dir = Player.transform.position - transform.position;
             float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
@@ -112,7 +118,7 @@ public class enemy : MonoBehaviour
         if (!VisionHu)
         {
             RaycastHit2D RaycastH = Physics2D.Raycast(transform.position, Dir, enemyData.RayRange, Mask);
-            if (RaycastH.collider == null || RaycastH.collider.gameObject != Player)    // raycast testaa että onko pelaajan ja vihollisen välissä jotain
+            if (RaycastH.collider == null || RaycastH.collider.gameObject != Player)    // raycast testaa ettï¿½ onko pelaajan ja vihollisen vï¿½lissï¿½ jotain
             {
                 Rotation = false;
                

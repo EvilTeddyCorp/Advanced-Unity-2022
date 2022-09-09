@@ -61,7 +61,7 @@ public class MeshVision : MonoBehaviour
             for (int i = 0; i <= raycount; i++)
             {
 
-                LayerMask mask = LayerMask.GetMask("Wall", "player");
+                LayerMask mask = LayerMask.GetMask("Wall", "player", "IgnoreAstarpath");
                 Vector3 vertex;
                 if (i <= (raycount / jakaja))
                 {

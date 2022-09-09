@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    private void Start() // sovitaan että täällä on se oikee paikka tunkee tää
+    {
+        Physics2D.IgnoreLayerCollision(9, 9);
+    }
 
     //public GameObject Player;
 

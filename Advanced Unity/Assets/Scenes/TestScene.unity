@@ -1082,7 +1082,7 @@ GameObject:
   - component: {fileID: 885762278}
   - component: {fileID: 885762277}
   - component: {fileID: 885762276}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,8 +1153,8 @@ MonoBehaviour:
   autoRepath:
     mode: 2
     interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
+    sensitivity: 20
+    maximumInterval: 3
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
@@ -1705,7 +1705,7 @@ GameObject:
   - component: {fileID: 1532071462}
   - component: {fileID: 1532071464}
   - component: {fileID: 1532071465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   radius: 22
   height: 20
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 6
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -1981,6 +1981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675679706}
   - component: {fileID: 1675679705}
+  - component: {fileID: 1675679707}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -2090,6 +2091,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675679707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675679704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddf273d8f989a64ebbe6eef159d3349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pathfinder: {fileID: 0}
 --- !u!1 &1682345868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,6 +2761,18 @@ MonoBehaviour:
   evt:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1675679707}
+        m_TargetAssemblyTypeName: PathfindingManager, Assembly-CSharp
+        m_MethodName: RecalculateGraph
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1831169135}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1831169137}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
