@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 732153136}
   - component: {fileID: 732153135}
   - component: {fileID: 732153140}
+  - component: {fileID: 732153141}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -871,6 +872,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RayRange: 2
+  PauseDuration: 0.2
+--- !u!114 &732153141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732153134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e31dd8aabd45342ae7b75e1281af4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPref: {fileID: 8699458478211401694, guid: dee0dbcfd75778640b5f8e5e48cca2d7, type: 3}
+  FirePoint: {fileID: 1196508805}
+  BulletSpeed: 1200
+  FirerateWait: 0.05
 --- !u!1 &826170114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,11 +1024,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841809545}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.3, z: 0}
-  m_LocalScale: {x: 0.2, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0.7, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.83125, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1196508806}
   m_Father: {fileID: 732153139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1082,6 +1101,7 @@ GameObject:
   - component: {fileID: 885762278}
   - component: {fileID: 885762277}
   - component: {fileID: 885762276}
+  - component: {fileID: 885762283}
   m_Layer: 9
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1159,7 +1179,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 220
-  slowdownDistance: 5
+  slowdownDistance: 7
   pickNextWaypointDist: 0.42
   endReachedDistance: 4
   alwaysDrawGizmos: 1
@@ -1347,6 +1367,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &885762283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885762274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873b866c0229bf3468ac875f0b67190f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
 --- !u!1 &1099948903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1443,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextCheckpoint: {fileID: 172619131}
   Enemy: {fileID: 1532071456}
+--- !u!1 &1196508805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196508806}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196508806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196508805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 5, y: 1.2030075, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 841809546}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238279754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1769,7 @@ GameObject:
   - component: {fileID: 1532071462}
   - component: {fileID: 1532071464}
   - component: {fileID: 1532071465}
+  - component: {fileID: 1532071466}
   m_Layer: 9
   m_Name: Enemy1
   m_TagString: Untagged
@@ -1849,7 +1914,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 220
-  slowdownDistance: 5
+  slowdownDistance: 7
   pickNextWaypointDist: 0.42
   endReachedDistance: 4
   alwaysDrawGizmos: 1
@@ -1971,6 +2036,19 @@ PolygonCollider2D:
       - {x: 10.74, y: -10.671826}
       - {x: 10.74, y: -10.598408}
       - {x: 10.100215, y: -9.30835}
+--- !u!114 &1532071466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532071456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873b866c0229bf3468ac875f0b67190f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
 --- !u!1 &1675679704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +2081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIeycGPHHWwIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjIJjSW0sI6SGBCenk4ossrbEGWfJIcvjI8N+7km3s0smJ5e3b3bcf8icRypbAnDYrI/iz5kB+DIi3ybdB53yCI91ptRVnaDnvgrvck2jgvFInNOIjH2Z1Ac4I9lPtpCdHCFZKZNoUS76DhbbOIpxRaQFdRjsfrRD6HJAj/gznPuSE1njmrTNa82hwQZOBcmA6aktsaTWrUkzSogTuJXfkacue1DSFzTSM6G7ss2sphW20EHcqQ6/bMgcDvlkuKLYW6o/upgjkIHa580L70esss+AaVYaeHoTBGdVpyS9dD66gdl9L+6Cy8oXi+6Cqzvn8n3s4Cu7M6OKpLTuKfAmXC7Z/pSdGresNtg8/9JSHAR2o3NNUwnsO6kWvjK4UR6czlQ+tLIwfur/XzhY5sH2H11JvwKr8ej2+h0to/riQokjD5O9rYCt1mHdYPhjczW8UHE7DNhNG1Kv4Y+GN7vo31DgehbEOXU2XystLdWU8lSzDzHw3lVtoo8D0M5SgqHSnDeZxtyu88X0d9Uj9c2mqN772FdyEBLjjR9GNa6MP123ZXB+ewebrykmhoBu1d7zgoBZaqfrC+i21YdvKZJT1wnaV4P/eFonjyX08Syfz72kE6RyGbM5n82kMUxbzGYtTEo5PKOyTyk0ttBkPrk11yRUeWvsVGawMLcO1c0MPK3EutO2YQmV6ywyAWtcZrsLBYBF8mHzJBQ5oC84JFRZOPhMiNdsDT66JktDp8ugMTbosCSnFh3YeScgifDYS4uHrMW8MfAg4+OJtsgu5/AVQSwMEFAAACAgAABAh7M+5qRJtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKZmbGJmXmSsaVFkkFqkmWqbrJlirmlqVmqabJZinmyWZJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABAh7JwY8cdbAgAAFQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABAh7M+5qRJtAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAQIey8eWE2WgIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GkGBKby0hpIcEJrSTiy+ytMYaZMkjyXwO/70r2cYOnZwQb9/uvn1a+UyEsiUwp83CCP6qOZAfA+LP5NugC77AgW60WosTtJwPwV3uSTRw3qkTGvGhT7O6AGcE+6k20pMjBCslMm2KOd/ATFtnEc6otIAho53PVgidB+SAP3dTn3LE02jiTyc8TaPBBY8MlAPTUVtiS6tZlWKSFiVwL7kjj1v2Q01TOEzDiO5HvrqWUthGC3HHMsy6LnMw4IflguJoof/wfoxADmKTOy+0n73MMguuUWXo8UkY9KguS37p2riC2m0tbUdl5RvFj0FVXfP1v/DdMIQzo4uXtu0w8i1cLtj2nR4Zta5nbB9+6ikPBu2p3NJUwkcO6k0vjK4Ux6AzlU+tLIyeur/XyWY5sG2H11JvwKr8+nr8DJcw/GEmRZEG5x9rYC118DtcPhi8m98oOKyGbRxG1Kv4a+EP3fR3qAk8C2MdhpoplZeX6sp4KpkHz/w0lZtpo8D0K5SgqHTHFdZxt1d4E/s665n659J0b2LtK7hJCXDHj6Kb0Ervr7dlc71/BZsvKyeFgs5qH3hDo2ZaqXrD+iO1aevKZJT10jaV4J93i8Txw2M8SR+m39MI0incsSmfTMcxjFnMJyxOSVg+oXBOKle10MYevLa+Jwo3rf2MDBaGlmHduaH7hTgV2nY6hMr0mhkAtfxcwoLBLvgy+ZwLdGgNzgkVbpycEyI12wJProWSMOr84AxNuioJKcVOO48kZBa+Gwnx8HWbVwZ2Ava+eVvsQi7/AFBLAwQUAAAICAAAECHsz7mpEm0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kpmZsYmZeZKxpUWSQWqSZapusmWKuaWpWappslmKebJZklIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHsvHlhNloCAAAWBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHsz7mpEm0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2016,7 +2094,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0

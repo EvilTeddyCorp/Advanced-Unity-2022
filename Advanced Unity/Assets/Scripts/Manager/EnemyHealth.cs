@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [HideInInspector]
     public int currentHealth;
@@ -16,7 +16,10 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            this.GetComponentInParent<MeshVision>().enabled = false;
+            this.GetComponentInParent<MeshRenderer>().enabled = false;
+
         }
     }
 }

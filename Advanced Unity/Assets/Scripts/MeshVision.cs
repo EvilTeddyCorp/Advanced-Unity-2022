@@ -17,7 +17,6 @@ public class MeshVision : MonoBehaviour
     public float viewdistance = 20f;
     public float smallviewdistance = 2f;
 
-    bool tased = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +30,7 @@ public class MeshVision : MonoBehaviour
     }
     private void Update()
     {
-        if (!tased)
-        {
+
             origin = enemy.transform.position;
             setaimdirection(enemy.transform.up);
 
@@ -136,7 +134,7 @@ public class MeshVision : MonoBehaviour
             mesh.uv = uv;
             mesh.triangles = triangles;
             mesh.RecalculateBounds();
-        }
+        
         
      
 
@@ -149,18 +147,8 @@ public class MeshVision : MonoBehaviour
         if (StartingAngle < 0) {StartingAngle += 360; }
         StartingAngle = (StartingAngle - (fov / 2f )) - 270 + (haluttufov / 2);    
     }
-    public IEnumerator Tased()                                          // kun vihollinen tasetaan, niin se sammuu hetkeksi
-    {
-        tased = true;
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponentInChildren<AIPath>().enabled = false;
-        yield return new WaitForSeconds(5.0f);
 
-        GetComponentInChildren<AIPath>().enabled = true;
-        GetComponent<MeshRenderer>().enabled = true;
-        tased = false;
-        
-    }
+    
 
 
 

@@ -17,7 +17,7 @@ MonoBehaviour:
   RayRange: 20
   PlayerSijaintiTallennus: {fileID: 6003232717498016082, guid: 360d45750495e10419bd30d8c4d5db0d, type: 3}
   CheckpointSlowdownDistance: 0.4
-  PlayerSlowdownDistance: 5
+  PlayerSlowdownDistance: 9
   CheckpointEndReachedDistance: 0.1
   PlayerEndReachedDistance: 4
   VisionDelay: 1

@@ -39,6 +39,7 @@ public class enemy : MonoBehaviour
         Enemy.GetComponent<AIDestinationSetter>().target = Checkpoint.transform;
         Enemy.GetComponent<AIPath>().slowdownDistance = enemyData.CheckpointSlowdownDistance;
         Enemy.GetComponent<AIPath>().endReachedDistance = enemyData.CheckpointEndReachedDistance;
+        Enemy.GetComponent<EnemyHealth>().currentHealth = enemyData.Health;
     }
     public void VisionFound(bool ensimmainen) // mesh vision kutsuu t�n ku se osuu pelaajaan
     {
