@@ -39,6 +39,14 @@ public class GameManager : Singleton<GameManager>
         }
 
     }
+    public IEnumerable StopPlayerMovement(int duration)
+    {
+        Movement Movement = GameObject.Find("PLayer").GetComponent<Movement>();
+        Movement.enabled = false;
+        yield return new WaitForSeconds(duration);
+        Movement.enabled = true;
+
+    }
 
 
 }

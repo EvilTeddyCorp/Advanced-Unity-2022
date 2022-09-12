@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class ray : MonoBehaviour
 {
-    public int RayRange = 5;
+    public int RayRange = 2;
     RaycastHit2D Hit;
     LayerMask Mask;
+    Movement Movement;
+    public float PauseDuration = 0.2f;
+    Component[] Interacts;
+    bool StoppingPlayerMovement = false;
     // Update is called once per frame
     private void Start()
     {
+        Movement = this.GetComponent<Movement>();
         Mask = LayerMask.GetMask("Interactable", "Wall");
     }
     void Update()
@@ -24,18 +29,34 @@ public class ray : MonoBehaviour
 
     void Interact()
     {
-        Hit = Physics2D.Raycast(this.transform.position, transform.up, 20f, Mask );
-        Debug.DrawRay(this.transform.position, transform.up * RayRange, Color.green, 5);
-        if (Hit)
+        if (!StoppingPlayerMovement)
         {
-            
-            if (Hit.transform.GetComponent<interact>())
+            Hit = Physics2D.Raycast(this.transform.position, transform.up, RayRange, Mask);
+            Debug.DrawRay(this.transform.position, transform.up * RayRange, Color.green, 5);
+            if (Hit)
             {
-                Hit.transform.GetComponent<interact>().Interact();
-            }
-            
-        }
+                Interacts = Hit.transform.GetComponents<interact>();
+                foreach (interact Inte in Interacts)
+                {
+                    if (Inte.enabled == true)
+                    {
+                        Inte.Interact();
+                        StoppingPlayerMovement = true;
+                        StartCoroutine("StopPlayerMovement", PauseDuration);
+                        break;
+                    }
+                }
 
+            }
+        }
+    }
+    public IEnumerator StopPlayerMovement(float duration)
+    {
+        Movement.enabled = false;
+        this.GetComponent<Rigidbody2D>().velocity *= 0;
+        yield return new WaitForSeconds(duration);
+        Movement.enabled = true;
+        StoppingPlayerMovement = false;
     }
 
 
