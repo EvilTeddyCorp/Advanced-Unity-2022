@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [HideInInspector]
     public int currentHealth;
 
     // Start is called before the first frame update
@@ -19,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
             this.gameObject.SetActive(false);
             this.GetComponentInParent<MeshVision>().enabled = false;
             this.GetComponentInParent<MeshRenderer>().enabled = false;
-
+            
         }
     }
 }

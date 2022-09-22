@@ -16,5 +16,9 @@ public class EnemyData : ScriptableObject
     public float AlertModeDelay = 5;
     public bool HiveMind;
     public int Health = 10;
+    public float FirerateWait = 0.20f;
+    public float BulletSpeed = 1200;
+    public GameObject BulletPref;
+
 
 }

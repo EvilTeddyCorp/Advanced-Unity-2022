@@ -25,8 +25,10 @@ public class enemy : MonoBehaviour
     bool Executing = false;
     bool ExecutingFov = false;
 
+    public GameObject FirePoint;
+    GameObject Bullet;
+    bool Firing = false;
 
-  
 
         
     
@@ -40,6 +42,7 @@ public class enemy : MonoBehaviour
         Enemy.GetComponent<AIPath>().slowdownDistance = enemyData.CheckpointSlowdownDistance;
         Enemy.GetComponent<AIPath>().endReachedDistance = enemyData.CheckpointEndReachedDistance;
         Enemy.GetComponent<EnemyHealth>().currentHealth = enemyData.Health;
+        
     }
     public void VisionFound(bool ensimmainen) // mesh vision kutsuu t�n ku se osuu pelaajaan
     {
@@ -135,15 +138,27 @@ public class enemy : MonoBehaviour
                 {
                     StopCoroutine(Unohtaminen());
                 }
-
             }
-            else
+            else if (!Firing)
             {
                 Rotation = true;
-               
+                StartCoroutine(Shoot());
             }
-        }
 
+
+        }
+        
+
+    }
+
+    IEnumerator Shoot()
+    {
+        Firing = true;
+        Bullet = Instantiate(enemyData.BulletPref, FirePoint.transform.position, this.transform.rotation);
+        Bullet.GetComponent<EnemyBulletScript>().Speed = enemyData.BulletSpeed;
+        Bullet.GetComponent<EnemyBulletScript>().Player = Player;
+        yield return new WaitForSeconds(enemyData.FirerateWait);
+        Firing = false;
     }
 
 }

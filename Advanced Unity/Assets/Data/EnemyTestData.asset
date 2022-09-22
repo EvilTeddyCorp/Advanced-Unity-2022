@@ -23,3 +23,7 @@ MonoBehaviour:
   VisionDelay: 1
   AlertModeDelay: 5
   HiveMind: 1
+  Health: 10
+  FirerateWait: 0.5
+  BulletSpeed: 20
+  BulletPref: {fileID: 8699458478211401694, guid: 70d5b5d49ced43f47ad93a05e77d958f, type: 3}
