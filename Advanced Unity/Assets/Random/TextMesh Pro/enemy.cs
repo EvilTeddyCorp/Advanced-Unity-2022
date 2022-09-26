@@ -58,7 +58,6 @@ public class enemy : MonoBehaviour
         if (Executing)
         {
             StopCoroutine(VisionLost());
-            Debug.Log("Stopping Coroutine");
         }
         if (VisionHu == true)
         {

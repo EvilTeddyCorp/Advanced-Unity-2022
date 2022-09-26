@@ -8,7 +8,6 @@ public class BulletScript : MonoBehaviour
     Rigidbody2D rb;
     private void Start()
     {
-        Physics2D.IgnoreLayerCollision(7,7);
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up*Speed);    
     }

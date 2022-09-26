@@ -10,6 +10,7 @@ public class DoorTrigger : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Interact();
+   
         }        
     }
 
@@ -19,6 +20,7 @@ public class DoorTrigger : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             InteractClose();
+      
         }
     }
 

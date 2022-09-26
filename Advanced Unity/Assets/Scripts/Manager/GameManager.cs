@@ -7,6 +7,9 @@ public class GameManager : Singleton<GameManager>
     private void Start() // sovitaan että täällä on se oikee paikka tunkee tää
     {
         Physics2D.IgnoreLayerCollision(9, 9);
+        Physics2D.IgnoreLayerCollision(7, 7);
+        Physics2D.IgnoreLayerCollision(9, 2);
+        Physics2D.IgnoreLayerCollision(2, 2);
     }
 
     //public GameObject Player;

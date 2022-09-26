@@ -13,8 +13,7 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void Start()
     {
-        Physics2D.IgnoreLayerCollision(9, 2);
-        Physics2D.IgnoreLayerCollision(2, 2);
+
         rb = GetComponent<Rigidbody2D>();
 
     }
