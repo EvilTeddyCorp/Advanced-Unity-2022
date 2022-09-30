@@ -20,7 +20,8 @@ public class MeshVision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         mesh = new Mesh();
+
+        mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         Enemy = enemy.GetComponent<enemy>();
         origin = enemy.transform.position;
@@ -32,7 +33,7 @@ public class MeshVision : MonoBehaviour
     {
 
             origin = enemy.transform.position;
-            setaimdirection(enemy.transform.up);
+            Setaimdirection(-enemy.transform.up);
 
 
             /* 
@@ -43,7 +44,7 @@ public class MeshVision : MonoBehaviour
              * pelaajaa
              */
 
-            float angle = StartingAngle + 90;
+            float angle = StartingAngle;
             float angleincrease = fov / raycount;
             float jakaja = fov / haluttufov;  // 360 / 45 = 8 eli 45 astetta on se kartio 
 
@@ -60,31 +61,9 @@ public class MeshVision : MonoBehaviour
             {
 
                 LayerMask mask = LayerMask.GetMask("Wall", "player", "IgnoreAstarpath");
-                Vector3 vertex;
-                if (i <= (raycount / jakaja))
-                {
-                    RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), viewdistance, mask);
-                   
-
-                    if (raycastH.collider == null)
-                    {
-
-                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * viewdistance;
-
-                    }
-                    else
-                    {
-
-                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
-
-                    }
-                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
-                    {
-                        Enemy.VisionFound(true);
-                    }
-
-                }
-                else
+                Vector3 vertex = new Vector3();
+            
+                if (i <= ((raycount - (raycount / jakaja)) / 2))
                 {
                     RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), smallviewdistance, mask);
 
@@ -108,6 +87,52 @@ public class MeshVision : MonoBehaviour
      
 
                 }
+                else if (i <= (raycount / jakaja + ((raycount - (raycount/jakaja))/2)))
+                {
+                    RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), viewdistance, mask);
+                   
+
+                    if (raycastH.collider == null)
+                    {
+
+                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * viewdistance;
+
+                    }
+                    else
+                    {
+
+                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
+
+                    }
+                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
+                    {
+                        Enemy.VisionFound(true);
+                    }
+
+                }
+                else if (i <= (raycount))
+                {
+                    RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), smallviewdistance, mask);
+
+
+                    if (raycastH.collider == null)
+                    {
+
+                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * smallviewdistance;
+
+                    }
+                    else
+                    {
+
+                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * raycastH.distance;
+
+                    }
+                    if (Enemy.VisionHu == true && raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player")) // että pelaaja huomataan
+                    {
+                        Enemy.VisionFound(true);
+                    }
+                }
+
                 vertices[vertexindex] = vertex;
 
                 if (i > 0)
@@ -141,11 +166,11 @@ public class MeshVision : MonoBehaviour
 
     }
 
-    public void setaimdirection(Vector3 aimDirection)                    // että mesh osottaa sinne mihin vihollinen osoittaa
+    public void Setaimdirection(Vector3 aimDirection)                    // että mesh osottaa sinne mihin vihollinen osoittaa
     {
         StartingAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        if (StartingAngle < 0) {StartingAngle += 360; }
-        StartingAngle = (StartingAngle - (fov / 2f )) - 270 + (haluttufov / 2);    
+      //  if (StartingAngle < 0) {StartingAngle += 360; }
+        StartingAngle -= (360 - fov) / 2;
     }
 
     

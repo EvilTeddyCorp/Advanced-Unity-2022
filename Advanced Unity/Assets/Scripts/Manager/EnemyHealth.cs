@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int currentHealth;
-
+    public GameObject Weakpoint;
     // Start is called before the first frame update
 
 
@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             this.gameObject.SetActive(false);
+            Weakpoint.SetActive(false);
             this.GetComponentInParent<MeshVision>().enabled = false;
             this.GetComponentInParent<MeshRenderer>().enabled = false;
             
