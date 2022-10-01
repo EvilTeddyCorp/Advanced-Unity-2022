@@ -15,9 +15,9 @@ public class BulletScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.GetComponentInChildren<Weakpoint>())
+            if (collision.gameObject.GetComponent<Weakpoint>())
             {
-                collision.gameObject.GetComponentInChildren<Weakpoint>().Hit();
+                collision.gameObject.GetComponent<Weakpoint>().Hit();
             }
             else if (collision.gameObject.GetComponent<EnemyHealth>())
             {
