@@ -30,4 +30,8 @@ public class UIManager : Singleton<UIManager>
         Health.GetComponent<TMPro.TMP_Text>().text = "Health: " + Amount;
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

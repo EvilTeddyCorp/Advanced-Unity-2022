@@ -41,7 +41,10 @@ public class GameManager : Singleton<GameManager>
             //Player.canMove = true;
         }
 
+
     }
+
+
 
 
 }
