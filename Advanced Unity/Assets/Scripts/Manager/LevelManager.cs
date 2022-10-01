@@ -21,7 +21,7 @@ public class LevelManager : Singleton<LevelManager>
 
         if (scene == mainMenu)
         {
-            UIManager.Instance.ToggleMenu(true);
+            UIManager.Instance.ToggleMenu(false); //tän if homman voi poistaa myöhemmin jos ei oo muutettu
         }
         else
         {
