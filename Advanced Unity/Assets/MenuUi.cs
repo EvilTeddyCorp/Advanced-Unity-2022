@@ -9,4 +9,9 @@ public class MenuUi : MonoBehaviour
         Application.Quit();
         Debug.Log("Peli sammutettu");
     }
+
+    public void LoadLevel(string Level)
+    {
+        LevelManager.Instance.LoadLevel(Level);
+    }
 }
