@@ -84,6 +84,10 @@ public class MeshVision : MonoBehaviour
                     {
                         Enemy.VisionFound(true);
                     }
+                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player"))
+                    {
+                    vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * smallviewdistance;
+                    }
      
 
                 }
@@ -108,8 +112,12 @@ public class MeshVision : MonoBehaviour
                     {
                         Enemy.VisionFound(true);
                     }
+                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player"))
+                    {
+                         vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * viewdistance;
+                    }
 
-                }
+            }
                 else if (i <= (raycount))
                 {
                     RaycastHit2D raycastH = Physics2D.Raycast(origin, new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))), smallviewdistance, mask);
@@ -131,7 +139,11 @@ public class MeshVision : MonoBehaviour
                     {
                         Enemy.VisionFound(true);
                     }
-                }
+                    if (raycastH.collider?.gameObject.layer == LayerMask.NameToLayer("player"))
+                    {
+                        vertex = origin + new Vector3(Mathf.Cos(angle * (Mathf.PI / 180f)), Mathf.Sin(angle * (Mathf.PI / 180f))) * smallviewdistance;
+                    }
+            }
 
                 vertices[vertexindex] = vertex;
 

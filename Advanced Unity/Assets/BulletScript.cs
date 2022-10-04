@@ -15,12 +15,14 @@ public class BulletScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.GetComponent<Weakpoint>())
+            if (collision.gameObject.name == "Weakpoint")
             {
+                Debug.Log("Weakpoint hit");
                 collision.gameObject.GetComponent<Weakpoint>().Hit();
             }
             else if (collision.gameObject.GetComponent<EnemyHealth>())
             {
+                Debug.Log(collision.gameObject.name);
                 collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
             }
                         

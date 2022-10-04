@@ -139,8 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Speed: 500
-  RotateSpeed: 2
-  RotateTime: 1
+  RotateSpeed: 5
+  RotateTime: 1.5
 --- !u!114 &-8096131248385178934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 1
+  Weakpoint: {fileID: 0}

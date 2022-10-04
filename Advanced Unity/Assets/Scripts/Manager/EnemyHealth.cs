@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            UIManager.Instance.ToggleMenu(false);
             this.gameObject.SetActive(false);
             Weakpoint.SetActive(false);
             this.GetComponentInParent<MeshVision>().enabled = false;

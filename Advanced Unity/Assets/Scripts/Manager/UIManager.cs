@@ -6,6 +6,8 @@ public class UIManager : Singleton<UIManager>
 {
     public GameObject MenuPanel;
     public GameObject HUDPanel;
+    public GameObject VictoryPanel;
+
     public GameObject Ammo;
     public GameObject Health;
     private void Awake()
@@ -20,6 +22,15 @@ public class UIManager : Singleton<UIManager>
         HUDPanel.SetActive(!t);
     }
 
+    public void Victory()
+    {
+        MenuPanel.SetActive(false);
+        HUDPanel.SetActive(false);
+        VictoryPanel.SetActive(true);
+        GameManager.Instance.PauseGame();
+        // tähän vois laittaa jotain aikoja tai jotai
+    }
+
     public void UpdateAmmo(int Amount)
     {
         Ammo.GetComponent<TMPro.TMP_Text>().text = "Ammo: " + Amount;
@@ -30,8 +41,4 @@ public class UIManager : Singleton<UIManager>
         Health.GetComponent<TMPro.TMP_Text>().text = "Health: " + Amount;
     }
 
-    public void Exit()
-    {
-        Application.Quit();
-    }
 }

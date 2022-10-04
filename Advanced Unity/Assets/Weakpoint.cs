@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weakpoint : MonoBehaviour
 {
-
+  
     public void Hit()
     {
         GetComponentInParent<EnemyHealth>().TakeDamage(999);

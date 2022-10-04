@@ -22,7 +22,6 @@ public class GameManager : Singleton<GameManager>
             PauseGame(false);
         else
             PauseGame(true);
-
     }
     void PauseGame(bool t)
     {
@@ -40,11 +39,8 @@ public class GameManager : Singleton<GameManager>
             isPaused = false;
             //Player.canMove = true;
         }
-
-
+        
     }
-
-
 
 
 }
