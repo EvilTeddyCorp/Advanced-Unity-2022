@@ -13,16 +13,13 @@ public class Collect : MonoBehaviour
         transform.Rotate(0, 0, +RotationSpeed);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Ker‰ys()
     {
-        if (collision.gameObject == Player) 
-        {
-            // pelaa ‰‰ni jos joskus aion teh‰
-            this.gameObject.SetActive(false);
-            CollectedDiamond.gameObject.SetActive(true);
-            Player.GetComponent<FpsController>().enabled = false;
-            Barrel.SetActive(false);
-
-        }
+        Debug.Log("Timantti");
+        // pelaa ‰‰ni jos joskus aion teh‰
+        this.gameObject.SetActive(false);
+        CollectedDiamond.SetActive(true);
+        Player.GetComponent<FpsController>().enabled = false;
+        Barrel.SetActive(false);
     }
 }

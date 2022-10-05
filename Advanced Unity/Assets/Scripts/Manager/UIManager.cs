@@ -24,10 +24,10 @@ public class UIManager : Singleton<UIManager>
 
     public void Victory()
     {
+        GameManager.Instance.PauseGame();
         MenuPanel.SetActive(false);
         HUDPanel.SetActive(false);
         VictoryPanel.SetActive(true);
-        GameManager.Instance.PauseGame();
         // tähän vois laittaa jotain aikoja tai jotai
     }
 
