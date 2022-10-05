@@ -20,6 +20,8 @@ public class Collect : MonoBehaviour
         this.gameObject.SetActive(false);
         CollectedDiamond.SetActive(true);
         Player.GetComponent<FpsController>().enabled = false;
+        Player.GetComponent<Movement>().RunSpeed = 5;
+        Player.GetComponent<Movement>().WalkSpeed = 5;
         Barrel.SetActive(false);
     }
 }

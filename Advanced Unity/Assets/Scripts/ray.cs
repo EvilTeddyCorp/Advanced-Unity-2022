@@ -8,7 +8,6 @@ public class ray : MonoBehaviour
     RaycastHit2D Hit;
     LayerMask Mask;
     Movement Movement;
-    FpsController FpsController;
     public float PauseDuration = 0.2f;
     Component[] Interacts;
     bool StoppingPlayerMovement = false;
@@ -16,7 +15,6 @@ public class ray : MonoBehaviour
     private void Start()
     {
         Movement = this.GetComponent<Movement>();
-        FpsController = this.GetComponent<FpsController>();
         Mask = LayerMask.GetMask("Interactable", "Wall");
     }
     void Update()
@@ -55,11 +53,9 @@ public class ray : MonoBehaviour
     public IEnumerator StopPlayerMovement(float duration)
     {
         Movement.enabled = false;
-        FpsController.enabled = false;
         this.GetComponent<Rigidbody2D>().velocity *= 0;
         yield return new WaitForSeconds(duration);
         Movement.enabled = true;
-        FpsController.enabled = true;
         StoppingPlayerMovement = false;
     }
 
