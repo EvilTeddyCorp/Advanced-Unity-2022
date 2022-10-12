@@ -19,8 +19,7 @@ public class PlayerHealth : MonoBehaviour
         {
             this.GetComponent<Movement>().enabled = false;
             this.GetComponent<FpsController>().enabled = false;
-            // pitää lisätä tähän häviämis näytön käynnistäminen
-            // kannattaa käyttää ui manageria
+            UIManager.Instance.Lose();
         }
     }
 }

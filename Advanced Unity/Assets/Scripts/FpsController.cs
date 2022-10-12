@@ -12,6 +12,7 @@ public class FpsController : MonoBehaviour
     int Ammo = 250;
     public int MaxAmmo = 250;
     bool Firing = false;
+    public SoundEffect Audio;
     private void Start()
     {
         Ammo = MaxAmmo;
@@ -30,6 +31,7 @@ public class FpsController : MonoBehaviour
         Ammo--;
         UIManager.Instance.UpdateAmmo(Ammo);
         Debug.Log("Shoot");
+        AudioManager.Instance.PlayClipOnce(Audio, this.gameObject);
         Bullet = Instantiate(BulletPref,FirePoint.transform.position, this.transform.rotation);
         Bullet.GetComponent<BulletScript>().Speed = BulletSpeed;    
         yield return new WaitForSeconds(FirerateWait);

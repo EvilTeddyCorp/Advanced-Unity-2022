@@ -7,6 +7,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject MenuPanel;
     public GameObject HUDPanel;
     public GameObject VictoryPanel;
+    public GameObject LosePanel;
 
     public GameObject Ammo;
     public GameObject Health;
@@ -28,6 +29,13 @@ public class UIManager : Singleton<UIManager>
         MenuPanel.SetActive(false);
         HUDPanel.SetActive(false);
         VictoryPanel.SetActive(true);
+        // tähän vois laittaa jotain aikoja tai jotai
+    }    
+    public void Lose()
+    {
+        MenuPanel.SetActive(false);
+        HUDPanel.SetActive(false);
+        LosePanel.SetActive(true);
         // tähän vois laittaa jotain aikoja tai jotai
     }
 
