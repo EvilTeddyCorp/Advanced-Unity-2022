@@ -51,11 +51,11 @@ public class enemy : MonoBehaviour
             HiveMindSystem.HiveMindHunt();
         }
         Rotation = true;
-        if (ExecutingFov)
+        if (ExecutingFov)     // sammuttaa unohtamisen jos pelaaja löytyykin
         {
             StopCoroutine(Unohtaminen());
         }
-        if (Executing)
+        if (Executing)       // samaa ku ylempi mun visionlostille
         {
             StopCoroutine(VisionLost());
         }
@@ -72,7 +72,7 @@ public class enemy : MonoBehaviour
 
     }
 
-    public IEnumerator VisionLost()
+    public IEnumerator VisionLost()  // talletetaan pelaajan viimeksi tiedetty sijainti ja mennään sinne
     {
 
         Debug.Log("VisionLost started");
@@ -81,7 +81,7 @@ public class enemy : MonoBehaviour
         Enemy.GetComponent<AIPath>().endReachedDistance = enemyData.CheckpointEndReachedDistance;
 
         yield return new WaitForSeconds(enemyData.VisionDelay);
-        if (!VisionHu)
+        if (!VisionHu) // vision on hukattu niin luodaan merkki pelaajan viimeksi tiedettyyn sijaintiin
         {
             if (PlayerSijainti != null) GameObject.Destroy(PlayerSijainti);
             PlayerSijainti = Instantiate(enemyData.PlayerSijaintiTallennus, Player.transform.position, Player.transform.rotation);
@@ -94,7 +94,7 @@ public class enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator Unohtaminen()
+    private IEnumerator Unohtaminen() //kun vihollinen menee pelaajan viimeksi nähtyyn sijaintiin, niin tietyn ajan päästä hän menee takaisin patrol modeen
     {
         ExecutingFov = true;
         yield return new WaitForSeconds(enemyData.AlertModeDelay);
@@ -150,7 +150,7 @@ public class enemy : MonoBehaviour
 
     }
 
-    IEnumerator Shoot()
+    IEnumerator Shoot() //ampuminen
     {
         Firing = true;
         Bullet = Instantiate(enemyData.BulletPref, FirePoint.transform.position, this.transform.rotation);

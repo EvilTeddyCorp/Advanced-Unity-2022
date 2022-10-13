@@ -29,7 +29,7 @@ public class EnemyBulletScript : MonoBehaviour
     void Update()
     {
 
-        if (Rotating)
+        if (Rotating) // ne ammukset k‰‰ntyy ilmassa ett‰ ei olis niin helppoo v‰ist‰‰ niit‰
         {
             rb.velocity = transform.up * Speed;
             Vector3 dir = Player.transform.position - transform.position;
